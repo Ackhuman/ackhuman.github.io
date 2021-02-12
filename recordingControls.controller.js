@@ -41,7 +41,7 @@
                 if(audioDevices.length > 1) {
                     createDeviceOptionHtml(audioDevices);
                 } else {
-                    document.getElementById('selSoundSource').style.display = 'none';
+                    //document.getElementById('selSoundSource').style.display = 'none';
                 }
             })
             // .then(optionsHtml => void 0

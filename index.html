@@ -14,6 +14,7 @@
     <script type="text/javascript" src="error.service.js"></script>
     <script type="text/javascript" src="device.service.js"></script>
     <script type="text/javascript" src="storage.service.js"></script>
+    <script type="text/javascript" src="upload.service.js"></script>
     <script type="text/javascript" src="wav-recording.service.js"></script>
     <script type="text/javascript" src="recording.service.js"></script>
     <script type="text/javascript" src="visualizer.controller.js"></script>
@@ -50,6 +51,9 @@
                                     <option value="lossy">WEBM/OGG recording</option>
                                 </select>
                             </div>
+                        </div>
+                        <div id="containerCloud" class="my-1">
+                            <!-- Cloud controls will be inserted here -->
                         </div>
                     </div>
                 </div>
@@ -139,10 +143,31 @@
         </div>
     </script>
 
+    <script type="text/template" id="tplCloudControls">
+        <p>You can use the following controls to upload the file directly to your Google Drive.</p>
+        <div>
+            <button class="btn btn-primary" 
+                type="button"
+                title="Click this and provide authorization for the application to create files in your drive to stream the recording to the cloud."
+                onclick="NeighborScience.Service.Upload.OnSignInClicked()">Start</button>
+            <button class="btn btn-primary"
+                type="button"
+                disabled="disabled"
+                title="Deauthorize this application."
+                style="display:none;"
+                onclick="NeighborScience.Service.Upload.OnSignOutClicked()">Deauthorize</button>
+        </div>
+    </script>
+
     <script id="initScript" type="text/javascript">
         NeighborScience.Dialog.Init();
         NeighborScience.Controller.Main.Init();
         NeighborScience.Controller.RecordingControls.Init();
         NeighborScience.Controller.StatusDisplay.Init();
+    </script>
+    <script async defer 
+        src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};NeighborScience.Service.Upload.Init()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
 </body>

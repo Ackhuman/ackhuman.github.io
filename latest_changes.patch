@@ -1,0 +1,1331 @@
+diff --git a/./.git/COMMIT_EDITMSG "b/..\\ackhuman.github.io\\/.git/COMMIT_EDITMSG"
+index b80b4b4..f2d0a32 100644
+--- a/./.git/COMMIT_EDITMSG
++++ "b/..\\ackhuman.github.io\\/.git/COMMIT_EDITMSG"
+@@ -1 +1 @@
+-Fix default extension
++Added streaming to disk
+diff --git a/./.git/HEAD "b/..\\ackhuman.github.io\\/.git/HEAD"
+index b9a090c..b870d82 100644
+--- a/./.git/HEAD
++++ "b/..\\ackhuman.github.io\\/.git/HEAD"
+@@ -1 +1 @@
+-ref: refs/heads/StreamToDisk
++ref: refs/heads/main
+diff --git a/./.git/ORIG_HEAD "b/..\\ackhuman.github.io\\/.git/ORIG_HEAD"
+index ae15144..356c4d4 100644
+--- a/./.git/ORIG_HEAD
++++ "b/..\\ackhuman.github.io\\/.git/ORIG_HEAD"
+@@ -1 +1 @@
+-7fa45b51bce182d7952e006c96bc264a8fdaedfc
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496
+diff --git a/./.git/config "b/..\\ackhuman.github.io\\/.git/config"
+index aa7e8e5..57c621f 100644
+--- a/./.git/config
++++ "b/..\\ackhuman.github.io\\/.git/config"
+@@ -6,13 +6,11 @@
+ 	symlinks = false
+ 	ignorecase = true
+ [remote "origin"]
+-	url = https://github.com/Ackhuman/WebAudioRecorder.git
++	url = https://github.com/Ackhuman/ackhuman.github.io.git
+ 	fetch = +refs/heads/*:refs/remotes/origin/*
++[branch "master"]
++	remote = origin
++	merge = refs/heads/master
+ [branch "main"]
+ 	remote = origin
+ 	merge = refs/heads/main
+-[branch "StreamToDisk"]
+-	remote = origin
+-	merge = refs/heads/StreamToDisk
+-[credential]
+-	helper = store
+diff --git a/./.git/index "b/..\\ackhuman.github.io\\/.git/index"
+index 322c4b1..da8a308 100644
+Binary files a/./.git/index and "b/..\\ackhuman.github.io\\/.git/index" differ
+diff --git a/./.git/logs/HEAD "b/..\\ackhuman.github.io\\/.git/logs/HEAD"
+index a3bcda6..0179a4e 100644
+--- a/./.git/logs/HEAD
++++ "b/..\\ackhuman.github.io\\/.git/logs/HEAD"
+@@ -1,12 +1,4 @@
+-0000000000000000000000000000000000000000 ed1d91254edf64f8dd051217ab542716e3bfd605 R Salisbury <rsalisbury@terpsys.com> 1611085551 -0500	clone: from https://github.com/Ackhuman/WebAudioRecorder.git
+-ed1d91254edf64f8dd051217ab542716e3bfd605 4c85fd47cf1fc25db8694164a40c23f5a65012e9 R Salisbury <rsalisbury@terpsys.com> 1611085627 -0500	commit: Initial Commit
+-4c85fd47cf1fc25db8694164a40c23f5a65012e9 0a5f08e242c43a110d441913539ae8e05cfcd7b6 R Salisbury <rsalisbury@terpsys.com> 1611096553 -0500	commit: Added vizualizer (not functional) and dump button
+-0a5f08e242c43a110d441913539ae8e05cfcd7b6 fc5a55058ed3bef39500937e058b4988d2529029 R Salisbury <rsalisbury@terpsys.com> 1611099550 -0500	commit: Fixed visualizer
+-fc5a55058ed3bef39500937e058b4988d2529029 409529af2f4041f2ae66e53d3d751e523689a937 R Salisbury <rsalisbury@terpsys.com> 1611112179 -0500	commit: Bug fixes
+-409529af2f4041f2ae66e53d3d751e523689a937 a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 R Salisbury <rsalisbury@terpsys.com> 1611113798 -0500	commit: Moved visualizer control to statusDisplay.js
+-a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 R Salisbury <rsalisbury@terpsys.com> 1611169453 -0500	checkout: moving from main to StreamToDisk
+-a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 8e24665a7fa7f18f7e36abab6edcf6d04b784873 R Salisbury <rsalisbury@terpsys.com> 1611169511 -0500	commit: Calling it quits for now, saving progress
+-8e24665a7fa7f18f7e36abab6edcf6d04b784873 3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 R Salisbury <rsalisbury@terpsys.com> 1611198729 -0500	commit: Fixed errors in stream writing. File sound is messed up
+-3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 7fa45b51bce182d7952e006c96bc264a8fdaedfc R Salisbury <rsalisbury@terpsys.com> 1611885878 -0500	commit: Partially fixed wav writing. Still sounds a bit garbled.
+-7fa45b51bce182d7952e006c96bc264a8fdaedfc a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 R Salisbury <rsalisbury@terpsys.com> 1611892210 -0500	commit: Cleanup; truncate file before starting write
+-a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 b38aca88ea42ab83a53b632563a562334b07c1e6 R Salisbury <rsalisbury@terpsys.com> 1611980646 -0500	commit: Fix default extension
++0000000000000000000000000000000000000000 f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 R Salisbury <rsalisbury@terpsys.com> 1611112690 -0500	commit (initial): Initial setup
++f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114087 -0500	commit: Modified readme
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114617 -0500	checkout: moving from master to main
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 360fd51fd05881e465735da4934f1fcfd2f30936 R Salisbury <rsalisbury@terpsys.com> 1611892459 -0500	commit: Added streaming to disk
+diff --git a/./.git/logs/refs/heads/StreamToDisk "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/StreamToDisk"
+index 6567a86..2ade7d5 100644
+--- a/./.git/logs/refs/heads/StreamToDisk
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/StreamToDisk"
+@@ -3,4 +3,3 @@ a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 8e24665a7fa7f18f7e36abab6edcf6d04b78487
+ 8e24665a7fa7f18f7e36abab6edcf6d04b784873 3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 R Salisbury <rsalisbury@terpsys.com> 1611198729 -0500	commit: Fixed errors in stream writing. File sound is messed up
+ 3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 7fa45b51bce182d7952e006c96bc264a8fdaedfc R Salisbury <rsalisbury@terpsys.com> 1611885878 -0500	commit: Partially fixed wav writing. Still sounds a bit garbled.
+ 7fa45b51bce182d7952e006c96bc264a8fdaedfc a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 R Salisbury <rsalisbury@terpsys.com> 1611892210 -0500	commit: Cleanup; truncate file before starting write
+-a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 b38aca88ea42ab83a53b632563a562334b07c1e6 R Salisbury <rsalisbury@terpsys.com> 1611980646 -0500	commit: Fix default extension
+diff --git a/./.git/logs/refs/heads/main "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/main"
+index 4724837..1bc24b1 100644
+--- a/./.git/logs/refs/heads/main
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/main"
+@@ -1,6 +1,2 @@
+-0000000000000000000000000000000000000000 ed1d91254edf64f8dd051217ab542716e3bfd605 R Salisbury <rsalisbury@terpsys.com> 1611085551 -0500	clone: from https://github.com/Ackhuman/WebAudioRecorder.git
+-ed1d91254edf64f8dd051217ab542716e3bfd605 4c85fd47cf1fc25db8694164a40c23f5a65012e9 R Salisbury <rsalisbury@terpsys.com> 1611085627 -0500	commit: Initial Commit
+-4c85fd47cf1fc25db8694164a40c23f5a65012e9 0a5f08e242c43a110d441913539ae8e05cfcd7b6 R Salisbury <rsalisbury@terpsys.com> 1611096553 -0500	commit: Added vizualizer (not functional) and dump button
+-0a5f08e242c43a110d441913539ae8e05cfcd7b6 fc5a55058ed3bef39500937e058b4988d2529029 R Salisbury <rsalisbury@terpsys.com> 1611099550 -0500	commit: Fixed visualizer
+-fc5a55058ed3bef39500937e058b4988d2529029 409529af2f4041f2ae66e53d3d751e523689a937 R Salisbury <rsalisbury@terpsys.com> 1611112179 -0500	commit: Bug fixes
+-409529af2f4041f2ae66e53d3d751e523689a937 a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1 R Salisbury <rsalisbury@terpsys.com> 1611113798 -0500	commit: Moved visualizer control to statusDisplay.js
++0000000000000000000000000000000000000000 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114507 -0500	branch: Created from master
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 360fd51fd05881e465735da4934f1fcfd2f30936 R Salisbury <rsalisbury@terpsys.com> 1611892459 -0500	commit: Added streaming to disk
+diff --git "a/..\\ackhuman.github.io\\/.git/logs/refs/heads/master" "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/master"
+new file mode 100644
+index 0000000..fb393ba
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/heads/master"
+@@ -0,0 +1,2 @@
++0000000000000000000000000000000000000000 f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 R Salisbury <rsalisbury@terpsys.com> 1611112690 -0500	commit (initial): Initial setup
++f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114087 -0500	commit: Modified readme
+diff --git a/./.git/logs/refs/remotes/origin/StreamToDisk "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/StreamToDisk"
+index 00b250f..110cade 100644
+--- a/./.git/logs/refs/remotes/origin/StreamToDisk
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/StreamToDisk"
+@@ -1,4 +1,3 @@
+ 0000000000000000000000000000000000000000 8e24665a7fa7f18f7e36abab6edcf6d04b784873 R Salisbury <rsalisbury@terpsys.com> 1611169563 -0500	update by push
+ 8e24665a7fa7f18f7e36abab6edcf6d04b784873 3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 R Salisbury <rsalisbury@terpsys.com> 1611198765 -0500	update by push
+ 3eb3b70044d1e589b16f11d9cdf1480f1930bcb9 a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 R Salisbury <rsalisbury@terpsys.com> 1611892312 -0500	update by push
+-a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216 b38aca88ea42ab83a53b632563a562334b07c1e6 R Salisbury <rsalisbury@terpsys.com> 1611980657 -0500	update by push
+diff --git a/./.git/logs/refs/remotes/origin/main "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/main"
+index 57cdeda..695d937 100644
+--- a/./.git/logs/refs/remotes/origin/main
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/main"
+@@ -1,3 +1,2 @@
+-ed1d91254edf64f8dd051217ab542716e3bfd605 4c85fd47cf1fc25db8694164a40c23f5a65012e9 R Salisbury <rsalisbury@terpsys.com> 1611085914 -0500	update by push
+-4c85fd47cf1fc25db8694164a40c23f5a65012e9 0a5f08e242c43a110d441913539ae8e05cfcd7b6 R Salisbury <rsalisbury@terpsys.com> 1611097210 -0500	update by push
+-0a5f08e242c43a110d441913539ae8e05cfcd7b6 409529af2f4041f2ae66e53d3d751e523689a937 R Salisbury <rsalisbury@terpsys.com> 1611112214 -0500	update by push
++0000000000000000000000000000000000000000 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114672 -0500	update by push
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 360fd51fd05881e465735da4934f1fcfd2f30936 R Salisbury <rsalisbury@terpsys.com> 1611892473 -0500	update by push
+diff --git "a/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/master" "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/master"
+new file mode 100644
+index 0000000..4d5db9c
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/logs/refs/remotes/origin/master"
+@@ -0,0 +1,2 @@
++0000000000000000000000000000000000000000 f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 R Salisbury <rsalisbury@terpsys.com> 1611112713 -0500	update by push
++f0e54e67e68b81ed1e0b32cf5f8d8e7323abd240 d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496 R Salisbury <rsalisbury@terpsys.com> 1611114579 -0500	update by push
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/36/0fd51fd05881e465735da4934f1fcfd2f30936" "b/..\\ackhuman.github.io\\/.git/objects/36/0fd51fd05881e465735da4934f1fcfd2f30936"
+new file mode 100644
+index 0000000..1325260
+Binary files /dev/null and "b/..\\ackhuman.github.io\\/.git/objects/36/0fd51fd05881e465735da4934f1fcfd2f30936" differ
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/51/f94901140504b2b9b45f1a50841892a03e0a53" "b/..\\ackhuman.github.io\\/.git/objects/51/f94901140504b2b9b45f1a50841892a03e0a53"
+new file mode 100644
+index 0000000..96c03a5
+Binary files /dev/null and "b/..\\ackhuman.github.io\\/.git/objects/51/f94901140504b2b9b45f1a50841892a03e0a53" differ
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/a6/1a8c2f0ea49c044f206c9b35d1b23b0486b3f6" "b/..\\ackhuman.github.io\\/.git/objects/a6/1a8c2f0ea49c044f206c9b35d1b23b0486b3f6"
+new file mode 100644
+index 0000000..5a3b728
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/objects/a6/1a8c2f0ea49c044f206c9b35d1b23b0486b3f6"
+@@ -0,0 +1 @@
++xìÄ┴j1D{▐»╚-╨=ñºCr-üÆ≤z¡┤.Ä╡H2m■╛Z√zΦ╜Ö	Öv∩o/▄(∞kL|ªÖ%Æ²P▄÷W▄S&E╒T>a_ä ⁿú╬\LΩlUh░E*æ~╟o┼+N%?!ñM!ε,■w═Z=û<aµbT╠_╞-ⁿx·╫,iK£=8!£u\Q?2I»╕É∙¬ÑY¥&iyì^3╘&½zLΩ]╧°δ▓ε v	Së░⌠≡╬?∞êj╔
+\ No newline at end of file
+diff --git a/./.git/objects/b3/8aca88ea42ab83a53b632563a562334b07c1e6 b/./.git/objects/b3/8aca88ea42ab83a53b632563a562334b07c1e6
+deleted file mode 100644
+index f117e8d..0000000
+--- a/./.git/objects/b3/8aca88ea42ab83a53b632563a562334b07c1e6
++++ /dev/null
+@@ -1 +0,0 @@
+-x¥ÄKè├0│╓)·⌠i╖%├¼rÇ╔	Zφ1─vÉdHn?▐Σ│{U≡d[û╣âGΩU▓;ìB∩|B½╞(}	êSö8Lµ╔U╫îàâñ%╟éY0╤ÿ1Sæü%DùÆyGå≈~▀*ⁿ┬ìs╦{}├Ñ╢╧■ΘZƒφ▌╛d[╛┴æs)ZBé│¼5=^╬?{s¥_0iß²╤A_]╫6o½∙└îOÆ
+\ No newline at end of file
+diff --git a/./.git/objects/be/30d7c6e8521294a71aee88ca3e42f344d8c85d b/./.git/objects/be/30d7c6e8521294a71aee88ca3e42f344d8c85d
+deleted file mode 100644
+index 48b88cd..0000000
+Binary files a/./.git/objects/be/30d7c6e8521294a71aee88ca3e42f344d8c85d and /dev/null differ
+diff --git a/./.git/objects/cc/eaa4b8d5eef290f36b7cf6ee1dfd306ea488c9 b/./.git/objects/cc/eaa4b8d5eef290f36b7cf6ee1dfd306ea488c9
+deleted file mode 100644
+index 9eee6fa..0000000
+Binary files a/./.git/objects/cc/eaa4b8d5eef290f36b7cf6ee1dfd306ea488c9 and /dev/null differ
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/d6/d204191e3fd4352b0744f5e4c5790e201ec0c4" "b/..\\ackhuman.github.io\\/.git/objects/d6/d204191e3fd4352b0744f5e4c5790e201ec0c4"
+new file mode 100644
+index 0000000..dd9629b
+Binary files /dev/null and "b/..\\ackhuman.github.io\\/.git/objects/d6/d204191e3fd4352b0744f5e4c5790e201ec0c4" differ
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/d9/b9d653c2b74d0d26ed4a3d6739e0d03c4d8496" "b/..\\ackhuman.github.io\\/.git/objects/d9/b9d653c2b74d0d26ed4a3d6739e0d03c4d8496"
+new file mode 100644
+index 0000000..61ae438
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/objects/d9/b9d653c2b74d0d26ed4a3d6739e0d03c4d8496"
+@@ -0,0 +1,3 @@
++x¥ÄK
++1D]τ}Ñ;┐╔Çêpú'H&8fH2oo6^└Z┼+xKY╫▄A*{ΦòÑY╧Hñ╤á2╠A¢D▐á╙ΣfΘQ1zú─µ+┐;$dú┘Nl]p─æâÆK2╔E╟ôÆ╩ç(5
++┐≈g⌐pççσ÷·üsm┐~φ\╖÷iºÑ¼ K#▌╟íüb¼├r0■┼¡─£2G¿∞π╩Γ¢çKÇ
+\ No newline at end of file
+diff --git "a/..\\ackhuman.github.io\\/.git/objects/f0/e54e67e68b81ed1e0b32cf5f8d8e7323abd240" "b/..\\ackhuman.github.io\\/.git/objects/f0/e54e67e68b81ed1e0b32cf5f8d8e7323abd240"
+new file mode 100644
+index 0000000..ce55dcc
+Binary files /dev/null and "b/..\\ackhuman.github.io\\/.git/objects/f0/e54e67e68b81ed1e0b32cf5f8d8e7323abd240" differ
+diff --git a/./.git/refs/heads/StreamToDisk "b/..\\ackhuman.github.io\\/.git/refs/heads/StreamToDisk"
+index b76c496..59e1665 100644
+--- a/./.git/refs/heads/StreamToDisk
++++ "b/..\\ackhuman.github.io\\/.git/refs/heads/StreamToDisk"
+@@ -1 +1 @@
+-b38aca88ea42ab83a53b632563a562334b07c1e6
++a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216
+diff --git a/./.git/refs/heads/main "b/..\\ackhuman.github.io\\/.git/refs/heads/main"
+index 15dbda9..74e184d 100644
+--- a/./.git/refs/heads/main
++++ "b/..\\ackhuman.github.io\\/.git/refs/heads/main"
+@@ -1 +1 @@
+-a536b59e800aaea4dda8ce1f8e6f9d66a2c990c1
++360fd51fd05881e465735da4934f1fcfd2f30936
+diff --git "a/..\\ackhuman.github.io\\/.git/refs/heads/master" "b/..\\ackhuman.github.io\\/.git/refs/heads/master"
+new file mode 100644
+index 0000000..356c4d4
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/refs/heads/master"
+@@ -0,0 +1 @@
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496
+diff --git a/./.git/refs/remotes/origin/StreamToDisk "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/StreamToDisk"
+index b76c496..59e1665 100644
+--- a/./.git/refs/remotes/origin/StreamToDisk
++++ "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/StreamToDisk"
+@@ -1 +1 @@
+-b38aca88ea42ab83a53b632563a562334b07c1e6
++a4fa3c9f8cb8f4bc4967b4b6fc5ac38199e66216
+diff --git a/./.git/refs/remotes/origin/main "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/main"
+index a371842..74e184d 100644
+--- a/./.git/refs/remotes/origin/main
++++ "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/main"
+@@ -1 +1 @@
+-409529af2f4041f2ae66e53d3d751e523689a937
++360fd51fd05881e465735da4934f1fcfd2f30936
+diff --git "a/..\\ackhuman.github.io\\/.git/refs/remotes/origin/master" "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/master"
+new file mode 100644
+index 0000000..356c4d4
+--- /dev/null
++++ "b/..\\ackhuman.github.io\\/.git/refs/remotes/origin/master"
+@@ -0,0 +1 @@
++d9b9d653c2b74d0d26ed4a3d6739e0d03c4d8496
+diff --git a/./README.md "b/..\\ackhuman.github.io\\/README.md"
+index d366731..a61a8c2 100644
+--- a/./README.md
++++ "b/..\\ackhuman.github.io\\/README.md"
+@@ -1,2 +1,8 @@
+ # WebAudioRecorder
+ Records WAV files using the browser
++
++# Structure
++
++ * index.js - Only responsible for inserting template content into the DOM.
++ * recordingControls.controller.js - Sets up the recorder controls.
++ * statusDisplay.controller.js - Sets up the recording status display and timer.
+\ No newline at end of file
+diff --git a/./index.html "b/..\\ackhuman.github.io\\/index.html"
+index e10738d..764f39f 100644
+--- a/./index.html
++++ "b/..\\ackhuman.github.io\\/index.html"
+@@ -14,7 +14,6 @@
+     <script type="text/javascript" src="error.service.js"></script>
+     <script type="text/javascript" src="device.service.js"></script>
+     <script type="text/javascript" src="storage.service.js"></script>
+-    <script type="text/javascript" src="upload.service.js"></script>
+     <script type="text/javascript" src="wav-recording.service.js"></script>
+     <script type="text/javascript" src="recording.service.js"></script>
+     <script type="text/javascript" src="visualizer.controller.js"></script>
+@@ -52,9 +51,6 @@
+                                 </select>
+                             </div>
+                         </div>
+-                        <div id="containerCloud" class="my-1">
+-                            <!-- Cloud controls will be inserted here -->
+-                        </div>
+                     </div>
+                 </div>
+             </div>
+@@ -143,31 +139,10 @@
+         </div>
+     </script>
+ 
+-    <script type="text/template" id="tplCloudControls">
+-        <p>You can use the following controls to upload the file directly to your Google Drive.</p>
+-        <div>
+-            <button class="btn btn-primary" 
+-                type="button"
+-                title="Click this and provide authorization for the application to create files in your drive to stream the recording to the cloud."
+-                onclick="NeighborScience.Service.Upload.OnSignInClicked()">Start</button>
+-            <button class="btn btn-primary"
+-                type="button"
+-                disabled="disabled"
+-                title="Deauthorize this application."
+-                style="display:none;"
+-                onclick="NeighborScience.Service.Upload.OnSignOutClicked()">Deauthorize</button>
+-        </div>
+-    </script>
+-
+     <script id="initScript" type="text/javascript">
+         NeighborScience.Dialog.Init();
+         NeighborScience.Controller.Main.Init();
+         NeighborScience.Controller.RecordingControls.Init();
+         NeighborScience.Controller.StatusDisplay.Init();
+     </script>
+-    <script async defer 
+-        src="https://apis.google.com/js/api.js"
+-        onload="this.onload=function(){};NeighborScience.Service.Upload.Init()"
+-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+-    </script>
+ </body>
+\ No newline at end of file
+diff --git a/./index.js "b/..\\ackhuman.github.io\\/index.js"
+index 0b64307..9a7b685 100644
+--- a/./index.js
++++ "b/..\\ackhuman.github.io\\/index.js"
+@@ -11,18 +11,14 @@
+         Init: init
+     };
+ 
+-    var templateInserts = [
+-        ['tplControls', 'containerControls'],
+-        ['tplDisplay', 'displayContainer'],
+-        ['tplIntroText', 'introTextContainer'],
+-        ['tplCloudControls', 'containerCloud']
+-    ];
+-
+     function init() {
+-        templateInserts.forEach(tplConfig => insertTemplate(...tplConfig));
++        insertTemplate('tplControls', 'containerControls');
++        insertTemplate('tplDisplay', 'displayContainer');
++        insertTemplate('tplIntroText', 'introTextContainer');
+         Object.assign(NeighborScience.Controller.Main, NeighborScience.Controller.Recording);
+     }
+     
++
+     function insertTemplate(templateId, containerId) {
+         let controlTemplate = document.getElementById(templateId);
+         let controlContainer = document.getElementById(containerId);
+diff --git a/./latest_changes.patch b/./latest_changes.patch
+deleted file mode 100644
+index 753fb0c..0000000
+diff --git a/./node_modules/dotenv/CHANGELOG.md b/./node_modules/dotenv/CHANGELOG.md
+deleted file mode 100644
+index 7bf933b..0000000
+--- a/./node_modules/dotenv/CHANGELOG.md
++++ /dev/null
+@@ -1,155 +0,0 @@
+-# Changelog
+-
+-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+-
+-## [8.2.0](https://github.com/motdotla/dotenv/compare/v8.1.0...v8.2.0) (2019-10-16)
+-
+-## [8.1.0](https://github.com/motdotla/dotenv/compare/v7.0.0...v8.1.0) (2019-08-18)
+-
+-
+-### ΓÜá BREAKING CHANGES
+-
+-* dropping Node v6 support because end-of-life
+-
+-* Drop support for Node v6 (#392) ([2e9636a](https://github.com/motdotla/dotenv/commit/2e9636a)), closes [#392](https://github.com/motdotla/dotenv/issues/392)
+-
+-# [8.0.0](https://github.com/motdotla/dotenv/compare/v7.0.0...v8.0.0) (2019-05-02)
+-
+-- Drop support for Node v6 (#392) ([2e9636a](https://github.com/motdotla/dotenv/commit/2e9636a)), closes [#392](https://github.com/motdotla/dotenv/issues/392)
+-
+-### BREAKING CHANGES
+-
+-- dropping Node v6 support because end-of-life
+-
+-## [7.0.0] - 2019-03-12
+-
+-### Fixed
+-
+-- Fix removing unbalanced quotes ([#376](https://github.com/motdotla/dotenv/pull/376))
+-
+-### Removed
+-
+-- Removed `load` alias for `config` for consistency throughout code and documentation.
+-
+-## [6.2.0] - 2018-12-03
+-
+-### Added
+-
+-- Support preload configuration via environment variables ([#351](https://github.com/motdotla/dotenv/issues/351))
+-
+-## [6.1.0] - 2018-10-08
+-
+-### Added
+-
+-- `debug` option for `config` and `parse` methods will turn on logging
+-
+-## [6.0.0] - 2018-06-02
+-
+-### Changed
+-
+-- _Breaking:_ drop support for Node v4 ([#304](https://github.com/motdotla/dotenv/pull/304))
+-
+-## [5.0.0] - 2018-01-29
+-
+-### Added
+-
+-- Testing against Node v8 and v9
+-- Documentation on trim behavior of values
+-- Documentation on how to use with `import`
+-
+-### Changed
+-
+-- _Breaking_: default `path` is now `path.resolve(process.cwd(), '.env')`
+-- _Breaking_: does not write over keys already in `process.env` if the key has a falsy value
+-- using `const` and `let` instead of `var`
+-
+-### Removed
+-
+-- Testing against Node v7
+-
+-## [4.0.0] - 2016-12-23
+-
+-### Changed
+-
+-- Return Object with parsed content or error instead of false ([#165](https://github.com/motdotla/dotenv/pull/165)).
+-
+-### Removed
+-
+-- `verbose` option removed in favor of returning result.
+-
+-## [3.0.0] - 2016-12-20
+-
+-### Added
+-
+-- `verbose` option will log any error messages. Off by default.
+-- parses email addresses correctly
+-- allow importing config method directly in ES6
+-
+-### Changed
+-
+-- Suppress error messages by default ([#154](https://github.com/motdotla/dotenv/pull/154))
+-- Ignoring more files for NPM to make package download smaller
+-
+-### Fixed
+-
+-- False positive test due to case-sensitive variable ([#124](https://github.com/motdotla/dotenv/pull/124))
+-
+-### Removed
+-
+-- `silent` option removed in favor of `verbose`
+-
+-## [2.0.0] - 2016-01-20
+-
+-### Added
+-
+-- CHANGELOG to ["make it easier for users and contributors to see precisely what notable changes have been made between each release"](http://keepachangelog.com/). Linked to from README
+-- LICENSE to be more explicit about what was defined in `package.json`. Linked to from README
+-- Testing nodejs v4 on travis-ci
+-- added examples of how to use dotenv in different ways
+-- return parsed object on success rather than boolean true
+-
+-### Changed
+-
+-- README has shorter description not referencing ruby gem since we don't have or want feature parity
+-
+-### Removed
+-
+-- Variable expansion and escaping so environment variables are encouraged to be fully orthogonal
+-
+-## [1.2.0] - 2015-06-20
+-
+-### Added
+-
+-- Preload hook to require dotenv without including it in your code
+-
+-### Changed
+-
+-- clarified license to be "BSD-2-Clause" in `package.json`
+-
+-### Fixed
+-
+-- retain spaces in string vars
+-
+-## [1.1.0] - 2015-03-31
+-
+-### Added
+-
+-- Silent option to silence `console.log` when `.env` missing
+-
+-## [1.0.0] - 2015-03-13
+-
+-### Removed
+-
+-- support for multiple `.env` files. should always use one `.env` file for the current environment
+-
+-[7.0.0]: https://github.com/motdotla/dotenv/compare/v6.2.0...v7.0.0
+-[6.2.0]: https://github.com/motdotla/dotenv/compare/v6.1.0...v6.2.0
+-[6.1.0]: https://github.com/motdotla/dotenv/compare/v6.0.0...v6.1.0
+-[6.0.0]: https://github.com/motdotla/dotenv/compare/v5.0.0...v6.0.0
+-[5.0.0]: https://github.com/motdotla/dotenv/compare/v4.0.0...v5.0.0
+-[4.0.0]: https://github.com/motdotla/dotenv/compare/v3.0.0...v4.0.0
+-[3.0.0]: https://github.com/motdotla/dotenv/compare/v2.0.0...v3.0.0
+-[2.0.0]: https://github.com/motdotla/dotenv/compare/v1.2.0...v2.0.0
+-[1.2.0]: https://github.com/motdotla/dotenv/compare/v1.1.0...v1.2.0
+-[1.1.0]: https://github.com/motdotla/dotenv/compare/v1.0.0...v1.1.0
+-[1.0.0]: https://github.com/motdotla/dotenv/compare/v0.4.0...v1.0.0
+diff --git a/./node_modules/dotenv/LICENSE b/./node_modules/dotenv/LICENSE
+deleted file mode 100644
+index c430ad8..0000000
+--- a/./node_modules/dotenv/LICENSE
++++ /dev/null
+@@ -1,23 +0,0 @@
+-Copyright (c) 2015, Scott Motte
+-All rights reserved.
+-
+-Redistribution and use in source and binary forms, with or without
+-modification, are permitted provided that the following conditions are met:
+-
+-* Redistributions of source code must retain the above copyright notice, this
+-  list of conditions and the following disclaimer.
+-
+-* Redistributions in binary form must reproduce the above copyright notice,
+-  this list of conditions and the following disclaimer in the documentation
+-  and/or other materials provided with the distribution.
+-
+-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+diff --git a/./node_modules/dotenv/README.md b/./node_modules/dotenv/README.md
+deleted file mode 100644
+index cf65c9e..0000000
+--- a/./node_modules/dotenv/README.md
++++ /dev/null
+@@ -1,271 +0,0 @@
+-# dotenv
+-
+-<img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv" align="right" />
+-
+-Dotenv is a zero-dependency module that loads environment variables from a `.env` file into [`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env). Storing configuration in the environment separate from code is based on [The Twelve-Factor App](http://12factor.net/config) methodology.
+-
+-[![BuildStatus](https://img.shields.io/travis/motdotla/dotenv/master.svg?style=flat-square)](https://travis-ci.org/motdotla/dotenv)
+-[![Build status](https://ci.appveyor.com/api/projects/status/github/motdotla/dotenv?svg=true)](https://ci.appveyor.com/project/motdotla/dotenv/branch/master)
+-[![NPM version](https://img.shields.io/npm/v/dotenv.svg?style=flat-square)](https://www.npmjs.com/package/dotenv)
+-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+-[![Coverage Status](https://img.shields.io/coveralls/motdotla/dotenv/master.svg?style=flat-square)](https://coveralls.io/github/motdotla/dotenv?branch=coverall-intergration)
+-[![LICENSE](https://img.shields.io/github/license/motdotla/dotenv.svg)](LICENSE)
+-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+-
+-## Install
+-
+-```bash
+-# with npm
+-npm install dotenv
+-
+-# or with Yarn
+-yarn add dotenv
+-```
+-
+-## Usage
+-
+-As early as possible in your application, require and configure dotenv.
+-
+-```javascript
+-require('dotenv').config()
+-```
+-
+-Create a `.env` file in the root directory of your project. Add
+-environment-specific variables on new lines in the form of `NAME=VALUE`.
+-For example:
+-
+-```dosini
+-DB_HOST=localhost
+-DB_USER=root
+-DB_PASS=s1mpl3
+-```
+-
+-`process.env` now has the keys and values you defined in your `.env` file.
+-
+-```javascript
+-const db = require('db')
+-db.connect({
+-  host: process.env.DB_HOST,
+-  username: process.env.DB_USER,
+-  password: process.env.DB_PASS
+-})
+-```
+-
+-### Preload
+-
+-You can use the `--require` (`-r`) [command line option](https://nodejs.org/api/cli.html#cli_r_require_module) to preload dotenv. By doing this, you do not need to require and load dotenv in your application code. This is the preferred approach when using `import` instead of `require`.
+-
+-```bash
+-$ node -r dotenv/config your_script.js
+-```
+-
+-The configuration options below are supported as command line arguments in the format `dotenv_config_<option>=value`
+-
+-```bash
+-$ node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/your/env/vars
+-```
+-
+-Additionally, you can use environment variables to set configuration options. Command line arguments will precede these.
+-
+-```bash
+-$ DOTENV_CONFIG_<OPTION>=value node -r dotenv/config your_script.js
+-```
+-
+-```bash
+-$ DOTENV_CONFIG_ENCODING=latin1 node -r dotenv/config your_script.js dotenv_config_path=/custom/path/to/.env
+-```
+-
+-## Config
+-
+-`config` will read your `.env` file, parse the contents, assign it to
+-[`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env),
+-and return an Object with a `parsed` key containing the loaded content or an `error` key if it failed.
+-
+-```js
+-const result = dotenv.config()
+-
+-if (result.error) {
+-  throw result.error
+-}
+-
+-console.log(result.parsed)
+-```
+-
+-You can additionally, pass options to `config`.
+-
+-### Options
+-
+-#### Path
+-
+-Default: `path.resolve(process.cwd(), '.env')`
+-
+-You may specify a custom path if your file containing environment variables is located elsewhere.
+-
+-```js
+-require('dotenv').config({ path: '/full/custom/path/to/your/env/vars' })
+-```
+-
+-#### Encoding
+-
+-Default: `utf8`
+-
+-You may specify the encoding of your file containing environment variables.
+-
+-```js
+-require('dotenv').config({ encoding: 'latin1' })
+-```
+-
+-#### Debug
+-
+-Default: `false`
+-
+-You may turn on logging to help debug why certain keys or values are not being set as you expect.
+-
+-```js
+-require('dotenv').config({ debug: process.env.DEBUG })
+-```
+-
+-## Parse
+-
+-The engine which parses the contents of your file containing environment
+-variables is available to use. It accepts a String or Buffer and will return
+-an Object with the parsed keys and values.
+-
+-```js
+-const dotenv = require('dotenv')
+-const buf = Buffer.from('BASIC=basic')
+-const config = dotenv.parse(buf) // will return an object
+-console.log(typeof config, config) // object { BASIC : 'basic' }
+-```
+-
+-### Options
+-
+-#### Debug
+-
+-Default: `false`
+-
+-You may turn on logging to help debug why certain keys or values are not being set as you expect.
+-
+-```js
+-const dotenv = require('dotenv')
+-const buf = Buffer.from('hello world')
+-const opt = { debug: true }
+-const config = dotenv.parse(buf, opt)
+-// expect a debug message because the buffer is not in KEY=VAL form
+-```
+-
+-### Rules
+-
+-The parsing engine currently supports the following rules:
+-
+-- `BASIC=basic` becomes `{BASIC: 'basic'}`
+-- empty lines are skipped
+-- lines beginning with `#` are treated as comments
+-- empty values become empty strings (`EMPTY=` becomes `{EMPTY: ''}`)
+-- inner quotes are maintained (think JSON) (`JSON={"foo": "bar"}` becomes `{JSON:"{\"foo\": \"bar\"}"`)
+-- whitespace is removed from both ends of unquoted values (see more on [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)) (`FOO=  some value  ` becomes `{FOO: 'some value'}`)
+-- single and double quoted values are escaped (`SINGLE_QUOTE='quoted'` becomes `{SINGLE_QUOTE: "quoted"}`)
+-- single and double quoted values maintain whitespace from both ends (`FOO="  some value  "` becomes `{FOO: '  some value  '}`)
+-- double quoted values expand new lines (`MULTILINE="new\nline"` becomes
+-
+-```
+-{MULTILINE: 'new
+-line'}
+-```
+-
+-## FAQ
+-
+-### Should I commit my `.env` file?
+-
+-No. We **strongly** recommend against committing your `.env` file to version
+-control. It should only include environment-specific values such as database
+-passwords or API keys. Your production database should have a different
+-password than your development database.
+-
+-### Should I have multiple `.env` files?
+-
+-No. We **strongly** recommend against having a "main" `.env` file and an "environment" `.env` file like `.env.test`. Your config should vary between deploys, and you should not be sharing values between environments.
+-
+-> In a twelve-factor app, env vars are granular controls, each fully orthogonal to other env vars. They are never grouped together as ΓÇ£environmentsΓÇ¥, but instead are independently managed for each deploy. This is a model that scales up smoothly as the app naturally expands into more deploys over its lifetime.
+->
+-> ΓÇô [The Twelve-Factor App](http://12factor.net/config)
+-
+-### What happens to environment variables that were already set?
+-
+-We will never modify any environment variables that have already been set. In particular, if there is a variable in your `.env` file which collides with one that already exists in your environment, then that variable will be skipped. This behavior allows you to override all `.env` configurations with a machine-specific environment, although it is not recommended.
+-
+-If you want to override `process.env` you can do something like this:
+-
+-```javascript
+-const fs = require('fs')
+-const dotenv = require('dotenv')
+-const envConfig = dotenv.parse(fs.readFileSync('.env.override'))
+-for (const k in envConfig) {
+-  process.env[k] = envConfig[k]
+-}
+-```
+-
+-### Can I customize/write plugins for dotenv?
+-
+-For `dotenv@2.x.x`: Yes. `dotenv.config()` now returns an object representing
+-the parsed `.env` file. This gives you everything you need to continue
+-setting values on `process.env`. For example:
+-
+-```js
+-const dotenv = require('dotenv')
+-const variableExpansion = require('dotenv-expand')
+-const myEnv = dotenv.config()
+-variableExpansion(myEnv)
+-```
+-
+-### What about variable expansion?
+-
+-Try [dotenv-expand](https://github.com/motdotla/dotenv-expand)
+-
+-### How do I use dotenv with `import`?
+-
+-ES2015 and beyond offers modules that allow you to `export` any top-level `function`, `class`, `var`, `let`, or `const`.
+-
+-> When you run a module containing an `import` declaration, the modules it imports are loaded first, then each module body is executed in a depth-first traversal of the dependency graph, avoiding cycles by skipping anything already executed.
+->
+-> ΓÇô [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
+-
+-You must run `dotenv.config()` before referencing any environment variables. Here's an example of problematic code:
+-
+-`errorReporter.js`:
+-
+-```js
+-import { Client } from 'best-error-reporting-service'
+-
+-export const client = new Client(process.env.BEST_API_KEY)
+-```
+-
+-`index.js`:
+-
+-```js
+-import dotenv from 'dotenv'
+-import errorReporter from './errorReporter'
+-
+-dotenv.config()
+-errorReporter.client.report(new Error('faq example'))
+-```
+-
+-`client` will not be configured correctly because it was constructed before `dotenv.config()` was executed. There are (at least) 3 ways to make this work.
+-
+-1. Preload dotenv: `node --require dotenv/config index.js` (_Note: you do not need to `import` dotenv with this approach_)
+-2. Import `dotenv/config` instead of `dotenv` (_Note: you do not need to call `dotenv.config()` and must pass options via the command line or environment variables with this approach_)
+-3. Create a separate file that will execute `config` first as outlined in [this comment on #133](https://github.com/motdotla/dotenv/issues/133#issuecomment-255298822)
+-
+-## Contributing Guide
+-
+-See [CONTRIBUTING.md](CONTRIBUTING.md)
+-
+-## Change Log
+-
+-See [CHANGELOG.md](CHANGELOG.md)
+-
+-## Who's using dotenv?
+-
+-[These npm modules depend on it.](https://www.npmjs.com/browse/depended/dotenv)
+-
+-Projects that expand it often use the [keyword "dotenv" on npm](https://www.npmjs.com/search?q=keywords:dotenv).
+diff --git a/./node_modules/dotenv/config.js b/./node_modules/dotenv/config.js
+deleted file mode 100644
+index c7e6447..0000000
+--- a/./node_modules/dotenv/config.js
++++ /dev/null
+@@ -1,11 +0,0 @@
+-/* @flow */
+-
+-(function () {
+-  require('./lib/main').config(
+-    Object.assign(
+-      {},
+-      require('./lib/env-options'),
+-      require('./lib/cli-options')(process.argv)
+-    )
+-  )
+-})()
+diff --git a/./node_modules/dotenv/lib/cli-options.js b/./node_modules/dotenv/lib/cli-options.js
+deleted file mode 100644
+index ad69fab..0000000
+--- a/./node_modules/dotenv/lib/cli-options.js
++++ /dev/null
+@@ -1,13 +0,0 @@
+-/* @flow */
+-
+-const re = /^dotenv_config_(encoding|path|debug)=(.+)$/
+-
+-module.exports = function optionMatcher (args /*: Array<string> */) {
+-  return args.reduce(function (acc, cur) {
+-    const matches = cur.match(re)
+-    if (matches) {
+-      acc[matches[1]] = matches[2]
+-    }
+-    return acc
+-  }, {})
+-}
+diff --git a/./node_modules/dotenv/lib/env-options.js b/./node_modules/dotenv/lib/env-options.js
+deleted file mode 100644
+index b4c4a60..0000000
+--- a/./node_modules/dotenv/lib/env-options.js
++++ /dev/null
+@@ -1,18 +0,0 @@
+-/* @flow */
+-
+-// ../config.js accepts options via environment variables
+-const options = {}
+-
+-if (process.env.DOTENV_CONFIG_ENCODING != null) {
+-  options.encoding = process.env.DOTENV_CONFIG_ENCODING
+-}
+-
+-if (process.env.DOTENV_CONFIG_PATH != null) {
+-  options.path = process.env.DOTENV_CONFIG_PATH
+-}
+-
+-if (process.env.DOTENV_CONFIG_DEBUG != null) {
+-  options.debug = process.env.DOTENV_CONFIG_DEBUG
+-}
+-
+-module.exports = options
+diff --git a/./node_modules/dotenv/lib/main.js b/./node_modules/dotenv/lib/main.js
+deleted file mode 100644
+index e6c591c..0000000
+--- a/./node_modules/dotenv/lib/main.js
++++ /dev/null
+@@ -1,113 +0,0 @@
+-/* @flow */
+-/*::
+-
+-type DotenvParseOptions = {
+-  debug?: boolean
+-}
+-
+-// keys and values from src
+-type DotenvParseOutput = { [string]: string }
+-
+-type DotenvConfigOptions = {
+-  path?: string, // path to .env file
+-  encoding?: string, // encoding of .env file
+-  debug?: string // turn on logging for debugging purposes
+-}
+-
+-type DotenvConfigOutput = {
+-  parsed?: DotenvParseOutput,
+-  error?: Error
+-}
+-
+-*/
+-
+-const fs = require('fs')
+-const path = require('path')
+-
+-function log (message /*: string */) {
+-  console.log(`[dotenv][DEBUG] ${message}`)
+-}
+-
+-const NEWLINE = '\n'
+-const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/
+-const RE_NEWLINES = /\\n/g
+-const NEWLINES_MATCH = /\n|\r|\r\n/
+-
+-// Parses src into an Object
+-function parse (src /*: string | Buffer */, options /*: ?DotenvParseOptions */) /*: DotenvParseOutput */ {
+-  const debug = Boolean(options && options.debug)
+-  const obj = {}
+-
+-  // convert Buffers before splitting into lines and processing
+-  src.toString().split(NEWLINES_MATCH).forEach(function (line, idx) {
+-    // matching "KEY' and 'VAL' in 'KEY=VAL'
+-    const keyValueArr = line.match(RE_INI_KEY_VAL)
+-    // matched?
+-    if (keyValueArr != null) {
+-      const key = keyValueArr[1]
+-      // default undefined or missing values to empty string
+-      let val = (keyValueArr[2] || '')
+-      const end = val.length - 1
+-      const isDoubleQuoted = val[0] === '"' && val[end] === '"'
+-      const isSingleQuoted = val[0] === "'" && val[end] === "'"
+-
+-      // if single or double quoted, remove quotes
+-      if (isSingleQuoted || isDoubleQuoted) {
+-        val = val.substring(1, end)
+-
+-        // if double quoted, expand newlines
+-        if (isDoubleQuoted) {
+-          val = val.replace(RE_NEWLINES, NEWLINE)
+-        }
+-      } else {
+-        // remove surrounding whitespace
+-        val = val.trim()
+-      }
+-
+-      obj[key] = val
+-    } else if (debug) {
+-      log(`did not match key and value when parsing line ${idx + 1}: ${line}`)
+-    }
+-  })
+-
+-  return obj
+-}
+-
+-// Populates process.env from .env file
+-function config (options /*: ?DotenvConfigOptions */) /*: DotenvConfigOutput */ {
+-  let dotenvPath = path.resolve(process.cwd(), '.env')
+-  let encoding /*: string */ = 'utf8'
+-  let debug = false
+-
+-  if (options) {
+-    if (options.path != null) {
+-      dotenvPath = options.path
+-    }
+-    if (options.encoding != null) {
+-      encoding = options.encoding
+-    }
+-    if (options.debug != null) {
+-      debug = true
+-    }
+-  }
+-
+-  try {
+-    // specifying an encoding returns a string instead of a buffer
+-    const parsed = parse(fs.readFileSync(dotenvPath, { encoding }), { debug })
+-
+-    Object.keys(parsed).forEach(function (key) {
+-      if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
+-        process.env[key] = parsed[key]
+-      } else if (debug) {
+-        log(`"${key}" is already defined in \`process.env\` and will not be overwritten`)
+-      }
+-    })
+-
+-    return { parsed }
+-  } catch (e) {
+-    return { error: e }
+-  }
+-}
+-
+-module.exports.config = config
+-module.exports.parse = parse
+diff --git a/./node_modules/dotenv/package.json b/./node_modules/dotenv/package.json
+deleted file mode 100644
+index e1ce9be..0000000
+--- a/./node_modules/dotenv/package.json
++++ /dev/null
+@@ -1,80 +0,0 @@
+-{
+-  "_from": "dotenv",
+-  "_id": "dotenv@8.2.0",
+-  "_inBundle": false,
+-  "_integrity": "sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==",
+-  "_location": "/dotenv",
+-  "_phantomChildren": {},
+-  "_requested": {
+-    "type": "tag",
+-    "registry": true,
+-    "raw": "dotenv",
+-    "name": "dotenv",
+-    "escapedName": "dotenv",
+-    "rawSpec": "",
+-    "saveSpec": null,
+-    "fetchSpec": "latest"
+-  },
+-  "_requiredBy": [
+-    "#USER",
+-    "/"
+-  ],
+-  "_resolved": "https://registry.npmjs.org/dotenv/-/dotenv-8.2.0.tgz",
+-  "_shasum": "97e619259ada750eea3e4ea3e26bceea5424b16a",
+-  "_spec": "dotenv",
+-  "_where": "C:\\dev\\WebAudioRecorder",
+-  "bugs": {
+-    "url": "https://github.com/motdotla/dotenv/issues"
+-  },
+-  "bundleDependencies": false,
+-  "dependencies": {},
+-  "deprecated": false,
+-  "description": "Loads environment variables from .env file",
+-  "devDependencies": {
+-    "decache": "^4.5.1",
+-    "dtslint": "^0.9.8",
+-    "flow-bin": "^0.109.0",
+-    "sinon": "^7.5.0",
+-    "standard": "^13.1.0",
+-    "standard-markdown": "^5.1.0",
+-    "standard-version": "^7.0.0",
+-    "tap": "^14.7.0"
+-  },
+-  "engines": {
+-    "node": ">=8"
+-  },
+-  "homepage": "https://github.com/motdotla/dotenv#readme",
+-  "keywords": [
+-    "dotenv",
+-    "env",
+-    ".env",
+-    "environment",
+-    "variables",
+-    "config",
+-    "settings"
+-  ],
+-  "license": "BSD-2-Clause",
+-  "main": "lib/main.js",
+-  "name": "dotenv",
+-  "repository": {
+-    "type": "git",
+-    "url": "git://github.com/motdotla/dotenv.git"
+-  },
+-  "scripts": {
+-    "dtslint": "dtslint types",
+-    "flow": "flow",
+-    "lint": "standard",
+-    "postlint": "standard-markdown",
+-    "prerelease": "npm test",
+-    "pretest": "npm run lint && npm run dtslint",
+-    "release": "standard-version",
+-    "test": "tap tests/*.js --100"
+-  },
+-  "standard": {
+-    "ignore": [
+-      "flow-typed/"
+-    ]
+-  },
+-  "types": "types",
+-  "version": "8.2.0"
+-}
+diff --git a/./node_modules/dotenv/types/index.d.ts b/./node_modules/dotenv/types/index.d.ts
+deleted file mode 100644
+index a83184c..0000000
+--- a/./node_modules/dotenv/types/index.d.ts
++++ /dev/null
+@@ -1,59 +0,0 @@
+-// TypeScript Version: 3.0
+-/// <reference types="node" />
+-
+-export interface DotenvParseOptions {
+-  /**
+-   * You may turn on logging to help debug why certain keys or values are not being set as you expect.
+-   */
+-  debug?: boolean;
+-}
+-
+-export interface DotenvParseOutput {
+-  [name: string]: string;
+-}
+-
+-/**
+- * Parses a string or buffer in the .env file format into an object.
+- *
+- * @param src - contents to be parsed
+- * @param options - additional options
+- * @returns an object with keys and values based on `src`
+- */
+-export function parse(
+-  src: string | Buffer,
+-  options?: DotenvParseOptions
+-): DotenvParseOutput;
+-
+-export interface DotenvConfigOptions {
+-  /**
+-   * You may specify a custom path if your file containing environment variables is located elsewhere.
+-   */
+-  path?: string;
+-
+-  /**
+-   * You may specify the encoding of your file containing environment variables.
+-   */
+-  encoding?: string;
+-
+-  /**
+-   * You may turn on logging to help debug why certain keys or values are not being set as you expect.
+-   */
+-  debug?: boolean;
+-}
+-
+-export interface DotenvConfigOutput {
+-  error?: Error;
+-  parsed?: DotenvParseOutput;
+-}
+-
+-/**
+- * Loads `.env` file contents into {@link https://nodejs.org/api/process.html#process_process_env | `process.env`}.
+- * Example: 'KEY=value' becomes { parsed: { KEY: 'value' } }
+- *
+- * @param options - controls behavior
+- * @returns an object with a `parsed` key if successful or `error` key if an error occurred
+- *
+- */
+-export function config(options?: DotenvConfigOptions): DotenvConfigOutput;
+-/** @deprecated since v7.0.0 Use config instead. */
+-export const load: typeof config;
+diff --git a/./node_modules/dotenv/types/test.ts b/./node_modules/dotenv/types/test.ts
+deleted file mode 100644
+index bce0920..0000000
+--- a/./node_modules/dotenv/types/test.ts
++++ /dev/null
+@@ -1,19 +0,0 @@
+-import { config, parse } from "dotenv";
+-
+-const env = config();
+-const dbUrl: string | null =
+-  env.error || !env.parsed ? null : env.parsed["BASIC"];
+-
+-config({
+-  path: ".env-example",
+-  encoding: "utf8",
+-  debug: true
+-});
+-
+-const parsed = parse("NODE_ENV=production\nDB_HOST=a.b.c");
+-const dbHost: string = parsed["DB_HOST"];
+-
+-const parsedFromBuffer = parse(new Buffer("JUSTICE=league\n"), {
+-  debug: true
+-});
+-const justice: string = parsedFromBuffer["JUSTICE"];
+diff --git a/./node_modules/dotenv/types/tsconfig.json b/./node_modules/dotenv/types/tsconfig.json
+deleted file mode 100644
+index 012b05d..0000000
+--- a/./node_modules/dotenv/types/tsconfig.json
++++ /dev/null
+@@ -1,15 +0,0 @@
+-{
+-  "compilerOptions": {
+-    "module": "commonjs",
+-    "lib": ["es6"],
+-    "noImplicitAny": true,
+-    "noImplicitThis": true,
+-    "strictNullChecks": true,
+-    "strictFunctionTypes": true,
+-    "noEmit": true,
+-    "baseUrl": ".",
+-    "paths": {
+-      "dotenv": ["."]
+-    }
+-  }
+-}
+diff --git a/./node_modules/dotenv/types/tslint.json b/./node_modules/dotenv/types/tslint.json
+deleted file mode 100644
+index c634f99..0000000
+--- a/./node_modules/dotenv/types/tslint.json
++++ /dev/null
+@@ -1,6 +0,0 @@
+-{
+-  "extends": "dtslint/dtslint.json",
+-  "rules": {
+-    "strict-export-declare-modifiers": false
+-  }
+-}
+diff --git a/./package-lock.json b/./package-lock.json
+deleted file mode 100644
+index 9e58b58..0000000
+--- a/./package-lock.json
++++ /dev/null
+@@ -1,11 +0,0 @@
+-{
+-  "requires": true,
+-  "lockfileVersion": 1,
+-  "dependencies": {
+-    "dotenv": {
+-      "version": "8.2.0",
+-      "resolved": "https://registry.npmjs.org/dotenv/-/dotenv-8.2.0.tgz",
+-      "integrity": "sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw=="
+-    }
+-  }
+-}
+diff --git a/./recordingControls.controller.js "b/..\\ackhuman.github.io\\/recordingControls.controller.js"
+index 4828a5c..8159a21 100644
+--- a/./recordingControls.controller.js
++++ "b/..\\ackhuman.github.io\\/recordingControls.controller.js"
+@@ -41,7 +41,7 @@
+                 if(audioDevices.length > 1) {
+                     createDeviceOptionHtml(audioDevices);
+                 } else {
+-                    //document.getElementById('selSoundSource').style.display = 'none';
++                    document.getElementById('selSoundSource').style.display = 'none';
+                 }
+             })
+             // .then(optionsHtml => void 0
+diff --git a/./upload.service.js b/./upload.service.js
+deleted file mode 100644
+index 0d93425..0000000
+--- a/./upload.service.js
++++ /dev/null
+@@ -1,100 +0,0 @@
+-(function() {
+-    //https://console.developers.google.com/apis/credentials?project=wav-recorder
+-    if (typeof(NeighborScience) === "undefined") {
+-        NeighborScience = {};
+-    }
+-    if (typeof(NeighborScience.Service) === "undefined") {
+-        NeighborScience.Service = {}; 
+-    }
+-    NeighborScience.Service.Upload = uploadService();
+-
+-    function uploadService() {
+-        return {
+-            Init: handleClientLoad,
+-            OnSignInClicked: onSignInClicked,
+-            OnSignOutClicked: onSignOutClicked
+-        }
+-    }
+-
+-    // Client ID and API key from the Developer Console
+-    var CLIENT_ID = '159278953767-dr599rvaun6j2r3g3apgi2fmdg3h9ei7.apps.googleusercontent.com';
+-    var API_KEY = 'AIzaSyD9KECw-ZXckHHNcXw0HrOyTpuaXm9vQ2s';
+-
+-    // Array of API discovery doc URLs for APIs used by the quickstart
+-    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+-
+-    // Authorization scopes required by the API; multiple scopes can be
+-    // included, separated by spaces.
+-    var SCOPES = 'https://www.googleapis.com/auth/drive.file';
+-
+-    var elements = {
+-        btnAuthorize: null,
+-        btnSignout: null
+-    };
+-
+-    /**
+-     *  On load, called to load the auth2 library and API client library.
+-     */
+-    function handleClientLoad() {
+-        gapi.load('client:auth2', init);
+-    }
+-
+-    function init() {        
+-        Object.getOwnPropertyNames(elements)
+-            .forEach(name => elements[name] = document.getElementById(name));
+-        return initClient();
+-    }
+-
+-    /**
+-     *  Initializes the API client library and sets up sign-in state
+-     *  listeners.
+-     */
+-    function initClient() {
+-        let initConfig = {
+-            apiKey: API_KEY,
+-            clientId: CLIENT_ID,
+-            discoveryDocs: DISCOVERY_DOCS,
+-            scope: SCOPES
+-        };
+-        return gapi.client.init(initConfig)
+-            .then(function () {
+-                // Listen for sign-in state changes.
+-                gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+-                // Handle the initial sign-in state.
+-                updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+-            }, console.error);
+-    }
+-
+-    /**
+-     *  Called when the signed in status changes, to update the UI
+-     *  appropriately. After a sign-in, the API is called.
+-     */
+-    function updateSigninStatus(isSignedIn) {
+-        if (isSignedIn) {
+-            elements.btnAuthorize.style.display = 'none';
+-            elements.btnSignout.style.display = 'block';
+-        } else {
+-            elements.btnAuthorize.style.display = 'block';
+-            elements.btnSignout.style.display = 'none';
+-        }
+-    }
+-
+-    /**
+-     *  Sign in the user upon button click.
+-     */
+-    function onSignInClicked(event) {
+-        gapi.auth2.getAuthInstance().signIn();
+-    }
+-
+-    /**
+-     *  Sign out the user upon button click.
+-     */
+-    function onSignOutClicked(event) {
+-        gapi.auth2.getAuthInstance().signOut();
+-    }
+-
+-    function createFile(fileName) {
+-        //gapi.auth2.
+-    }
+-
+-})();
+\ No newline at end of file
+diff --git a/./wav-recording.service.js "b/..\\ackhuman.github.io\\/wav-recording.service.js"
+index cceaa4b..018c325 100644
+--- a/./wav-recording.service.js
++++ "b/..\\ackhuman.github.io\\/wav-recording.service.js"
+@@ -167,9 +167,9 @@
+         }
+     }
+     async function initFileStream() {
++        let mimeType = NeighborScience.Service.Device.GetAudioMimeType();
+         let fileExtension = NeighborScience.Service.Device.GetAudioFileExtension();
+-        //let acceptConfig = Object.defineProperty({}, mimeType, { value: [`.${fileExtension}`] });
+-        let acceptConfig = { 'audio/*': [`.${fileExtension}`] };
++        let acceptConfig = Object.defineProperty({}, mimeType, { get: () => [fileExtension] });
+         const options = {
+             types: [
+                 {
+@@ -177,7 +177,6 @@
+                     accept: acceptConfig
+                 },
+             ],
+-            multiple: false
+         };
+         const handle = await window.showSaveFilePicker(options);
+         const fileStream = await handle.createWritable();        

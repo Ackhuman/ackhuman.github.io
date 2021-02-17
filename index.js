@@ -1,28 +1,24 @@
 (function() {
 
-    if (typeof(NeighborScience) === "undefined") {
-        NeighborScience = {};
+    if (typeof(WebSound) === "undefined") {
+        WebSound = {};
     }
-    if (typeof(NeighborScience.Controller) === "undefined") {
-        NeighborScience.Controller = {}; 
+    if (typeof(WebSound.Controller) === "undefined") {
+        WebSound.Controller = {}; 
     }
 
-    NeighborScience.Controller.Main = {
+    WebSound.Controller.Main = {
         Init: init
     };
 
-    var templateInserts = [
-        ['tplControls', 'containerControls'],
-        ['tplDisplay', 'displayContainer'],
-        ['tplIntroText', 'introTextContainer'],
-        ['tplCloudControls', 'containerCloud']
-    ];
-
     function init() {
-        templateInserts.forEach(tplConfig => insertTemplate(...tplConfig));
-        Object.assign(NeighborScience.Controller.Main, NeighborScience.Controller.Recording);
+        insertTemplate('tplControls', 'containerControls');
+        insertTemplate('tplDisplay', 'displayContainer');
+        insertTemplate('tplIntroText', 'introTextContainer');
+        Object.assign(WebSound.Controller.Main, WebSound.Controller.Recording);
     }
     
+
     function insertTemplate(templateId, containerId) {
         let controlTemplate = document.getElementById(templateId);
         let controlContainer = document.getElementById(containerId);

@@ -1,4 +1,4 @@
-class WavProcessor extends AudioWorkletProcessor {
+class NoiseRemover extends AudioWorkletProcessor {
     NUM_SAMPLES = 128;
     constructor() {
         super();
@@ -85,4 +85,4 @@ class WavProcessor extends AudioWorkletProcessor {
         }
     }
 }
-registerProcessor('wav-processor', WavProcessor);
+registerProcessor('wav-processor', NoiseRemover);

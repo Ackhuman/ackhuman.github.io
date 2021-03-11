@@ -1,20 +1,12 @@
 import { contextOptions } from './wavRecording.service.js';
 import { DeviceService } from './device.service.js';
 import { DialogService } from './dialog.service.js';
-import { SoundProfileService } from './soundProfile.service.js';
 
 export class SoundCheckService {
     _audioContext = null;
-    _analyzer = null;
-    _profileService = null;
-    constructor() {
-        _profileService = new SoundProfileService();
-    }
+    
     async onSoundCheckStarted() {        
-        const fftSize = 1024;
         this._audioContext = new AudioContext(contextOptions);
-        this._analyzer = this._audioContext.createAnalyser();
-        this._analyzer.fftSize = fftSize;
         let sourceWorkletPromise = createSourceWorklet();
         let soundCheckWorkletPromise = createSoundCheckWorklet();
         this._audioContext.createBufferSource();
@@ -45,8 +37,11 @@ function performSoundCheck(soundCheckProcessor) {
 }
 
 function startSoundCheckStep(soundCheckProcessor, stepConfig) {
-    stepConfig.onDialogOpened = analyzerStep(stepConfig.stepName, stepConfig.analysisFn);
-    return DialogService.Prompt(stepConfig);
+    let stepComplete = DialogService.Prompt(stepConfig);
+    soundCheckProcessor.port.postMessage({ eventType: `${stepConfig.stepName}Start` });
+    return stepComplete.then(() => {
+        soundCheckProcessor.port.postMessage({ eventType: `${stepConfig.stepName}End` });
+    });
 }
 
 function createSourceWorklet() { 
@@ -62,40 +57,6 @@ function createSoundCheckWorklet() {
         .then(function() {
             return new AudioWorkletNode(audioContext, 'sound-check-processor', { channelCount: 1 });
         });
-}
-
-function analyzerStep(stepName, analysisFn) {
-    const buffer = new Float32Array(this._analyser.frequencyBinCount);
-    const profile = new Float32Array(this._analyser.frequencyBinCount);
-    let intervalMilliseconds = this._audioContext.sampleRate / fftSize;
-    let observationCount = 0;
-    return new Promise(resolve => {
-        var token = setInterval(() => {
-            this._analyzer.getFloatFrequencyData(buffer);
-            analysisFn(buffer, profile, observationCount);
-            observationCount++;
-        }, intervalMilliseconds)
-        setTimeout(() => {
-            _profileService.addProfile(stepName, profile);
-            clearInterval(token);
-            resolve(profile);
-        }, 2000);
-    });
-}
-function roomToneAnalysis(buffer, profile) {
-    buffer.forEach((freq, bucketIndex) => profile[bucketIndex] = profile[bucketIndex] * freq);
-}
-
-function voiceNormalAnalysis(buffer, profile, observationCount) {
-    buffer.forEach((freq, bucketIndex) => {
-        let newObservationCount = (observationCount + 1)
-        let newPartialAverage = profile[bucketIndex] * (observationCount / newObservationCount);
-        profile[bucketIndex] = newPartialAverage + (freq / newObservationCount);
-    });
-}
-
-function voicePeakAnalysis(buffer, profile) {
-    buffer.forEach((freq, bucketIndex) => profile[bucketIndex] = Math.max(profile[bucketIndex], freq));
 }
 
 dialogConfigs = [
@@ -118,8 +79,7 @@ dialogConfigs = [
             }
         ],
         height: 250,
-        stepName: 'roomTone',
-        analysisFn: roomToneAnalysis
+        stepName: 'roomTone'
     },
     {
         title: 'Normal volume',
@@ -139,8 +99,7 @@ dialogConfigs = [
             }
         ],
         height:200,
-        stepName: 'voiceNormal',
-        analysisFn: voiceNormalAnalysis
+        stepName: 'voiceNormal'
     },
     {
         title: 'Peak volume',
@@ -159,8 +118,7 @@ dialogConfigs = [
                 value: false
             }
         ],
-        stepName: 'voicePeak',
-        analysisFn: voicePeakAnalysis
+        stepName: 'voicePeak'
     }
 ];
 

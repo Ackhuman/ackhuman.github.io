@@ -46,13 +46,9 @@ export class DialogService {
                 let formContainer = document.getElementById('modalForm');
                 formContainer.append(form);
             }
-            if(options.onDialogOpened) {
-                options.onDialogOpened()
-                    .then(result => resolve(result));
-            }
             let buttons = options.choices
                 .map(function(choice) {
-                return this._createButton(choice, resolve, reject, valueResolver); 
+                   return this._createButton(choice, resolve, reject, valueResolver); 
                 });
             let buttonContainer = document.getElementById('modalControls');
             buttonContainer.append(...buttons);

@@ -17,29 +17,19 @@ export class AudioNetworkService {
         this.audioContext = audioContext;
     }
     
-    async createAudioNetwork(src, useCompression, useNoiseRemoval, useLowRolloff){
-        let initSteps = [];
-        let audioNetwork = [];
-        if(useCompression) {
-            initSteps.push(this.createCompressorWorklet());
-        }
-        initSteps.push(this.createRecorderWorklet());
+    async createAudioNetwork(src){
+        let initSteps = [
+            this.createCompressorWorklet(),
+            this.createRecorderWorklet(),
+        ];
         this.audioContext.createBufferSource();
-
         let analyzer = this.createAnalyzerNode();
         let [compressorNode, recorder] = await Promise.all(initSteps);
-        audioNetwork.push(src, 
-            analyzer
-        );
-        if(useCompression) {
-            audioNetwork.push(compressorNode);
-        }
-        if(useNoiseRemoval) {
-            audioNetwork.push()
-        }
-        audioNetwork.push(recorder);
         this.connectAudioNetwork(
-            
+            src, 
+            analyzer, 
+            compressorNode, 
+            recorder
         );
         return [analyzer, compressorNode, recorder];
     }

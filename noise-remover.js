@@ -9,27 +9,14 @@ class Compressor extends AudioWorkletProcessor {
     //parameters
     isRecording = false;
     isSampling = false;
-    profile = null;
+    _buffer = null;
+    _view = null;
 
     process (inputs, outputs, parameters) {
-        if(this.profile){
-            inputs.forEach((input, inputIndex) => {
-                input.forEach((channel, channelIndex) => {
-                    channel.forEach((sample, sampleIndex) => {
-                        outputs[inputIndex][channelIndex][sampleIndex] = sample - this.profile[sampleIndex];
-                    });
-                });
-            });
-        }
-        return true;
+        
     }
 
-    onMessage(evt) {
-        switch(evt.data.eventType) {
-            case('profile'):
-                this.profile = evt.data.payload;
-                break;
-        }
-    }
+    sampleRoomTone()
+
 }
 registerProcessor('noise-remover', Compressor);

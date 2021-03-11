@@ -1,4 +1,4 @@
-class WavProcessor extends AudioWorkletProcessor {
+class Compressor extends AudioWorkletProcessor {
     NUM_SAMPLES = 128;
     constructor() {
         super();
@@ -9,39 +9,27 @@ class WavProcessor extends AudioWorkletProcessor {
     //parameters
     isRecording = false;
     isSampling = false;
-    _buffer = null;
-    _view = null;
+    profile = null;
 
     process (inputs, outputs, parameters) {
-        if (!this.isRecording && !this.isSampling) {
-            return false;
+        if(this.profile){
+            inputs.forEach((input, inputIndex) => {
+                input.forEach((channel, channelIndex) => {
+                    channel.forEach((sample, sampleIndex) => {
+                        outputs[inputIndex][channelIndex][sampleIndex] = sample - this.profile[sampleIndex];
+                    });
+                });
+            });
         }
-        this.port.postMessage({
-            eventType: 'dataavailable',
-            audioBuffer: this.writeBuffer(inputs)
-        });
         return true;
     }
-    
+
     onMessage(evt) {
-        let messageType = evt.data.eventType;
-        switch(messageType) {
-            case 'sampleRoomTone':
-                this.isSampling = true;
+        switch(evt.data.eventType) {
+            case('profile'):
+                this.profile = evt.data.payload;
                 break;
-            case 'start':
-                this.isRecording = true;
-                this.isSampling = false;
-                break;
-            case 'stop':
-                this.isRecording = false;
-                break;
-            default:
-                this.settings = messageType;
         }
     }
-
-    sampleRoomTone()
-
 }
-registerProcessor('noise-remover', NoiseRemover);
+registerProcessor('noise-remover', Compressor);
